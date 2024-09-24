@@ -58,6 +58,6 @@ jobs:
          distribution: 'temurin'
 
      - name: Run code quality analysis
-       run: mvn sonar:sonar -Dsonar.projectKey=cms -Dsonar.host.url=http://localhost:9093 -Dsonar.login=${{ secrets.SONAR_TOKEN }} -X
+       run: mvn sonar:sonar -Dsonar.projectKey=cms -Dsonar.host.url=http://localhost:9093 -Dsonar.login=${{ secrets.DSONARLOGIN }} -X
     
 
