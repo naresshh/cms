@@ -42,4 +42,20 @@ jobs:
           distribution: 'temurin'    # Specify the Java distribution
 
       - name: Run tests
-        run: mvn test       
+        run: mvn test 
+        
+  code_quality:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run code quality analysis
+        run: mvn sonar:sonar -Dsonar.projectKey=cms
