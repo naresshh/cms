@@ -1,0 +1,4 @@
+{
+    "sonarQubeUri": "http://localhost:9093",
+    "projectKey": "customermanagement"
+}
