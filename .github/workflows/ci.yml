@@ -54,7 +54,8 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
-
+      - name: Clean and package the application
+        run: mvn clean package
       - name: Build Docker image
         run: docker build -t cmsimage1 .
 
