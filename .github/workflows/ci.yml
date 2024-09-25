@@ -62,7 +62,7 @@ jobs:
       - name: Clean and package the application
         run: mvn clean package
       - name: Build Docker image
-        run: docker build -t naresh2345/cmsapp:latest .
+        run: docker build -t ***/cmsapp:latest .
 
   push_docker:
     runs-on: ubuntu-latest
@@ -75,4 +75,4 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push Docker image
-        run: docker push naresh2345/cmsapp:latest
+        run: docker push ***/cmsapp:latest
