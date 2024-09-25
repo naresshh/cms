@@ -43,6 +43,8 @@ jobs:
 
       - name: Run tests
         run: mvn test 
+      - name: Clean and package the application
+        run: mvn clean package
       - name: List target directory
         run: ls target/
      
