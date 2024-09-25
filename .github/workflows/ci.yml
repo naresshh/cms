@@ -75,4 +75,4 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push Docker image
-        run: docker push your_docker_image_name
+        run: docker push cmsimage1
