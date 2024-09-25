@@ -52,6 +52,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'         # Set the desired Java version
+          distribution: 'temurin'
       - name: Check out the repository
         uses: actions/checkout@v2
       - name: Clean and package the application
