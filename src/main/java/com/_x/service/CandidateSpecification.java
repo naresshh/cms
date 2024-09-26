@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 public class CandidateSpecification {
 
+    private CandidateSpecification(){
+
+    }
+
     public static Specification<Candidate> withFilters(
             String candidateName,
             String experience,

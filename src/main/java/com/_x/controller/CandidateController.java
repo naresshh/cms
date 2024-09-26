@@ -70,6 +70,7 @@ public class CandidateController {
         return ResponseEntity.ok(response);
     }
 
+
     @PostMapping
     public ResponseEntity<CandidateDTO> createCandidate(@Valid @RequestBody CandidateDTO candidate) {
         CandidateDTO newCandidate = candidateService.saveCandidate(candidate);

@@ -33,7 +33,6 @@ class CandidateServiceTest {
 
     @InjectMocks
     private CandidateService candidateService;
-    private List<Candidate> candidateList;
 
     @Test
     void saveCandidate() {
