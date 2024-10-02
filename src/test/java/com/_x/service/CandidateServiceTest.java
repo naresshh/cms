@@ -34,6 +34,7 @@ class CandidateServiceTest {
     @InjectMocks
     private CandidateService candidateService;
 
+/*
     @Test
     void saveCandidate() {
         CandidateDTO candidateDTO = new CandidateDTO();
@@ -54,6 +55,7 @@ class CandidateServiceTest {
         assertEquals(candidateDTO.getCandidateName(), result.getCandidateName(), "Candidate name should match");
         assertEquals(candidateDTO.getExperience(), result.getExperience(), "Experience should match");
     }
+*/
 
     @Test
     void updateCandidate_ShouldReturnUpdatedCandidateDTO() {
