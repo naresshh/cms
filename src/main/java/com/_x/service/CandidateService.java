@@ -11,21 +11,27 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CandidateService {
 
     private final CandidateRepository candidateRepository;
     private final CandidateMapper candidateMapper;
+
+    @Autowired
+    private ConsumerServiceClient consumerServiceClient;
     @Autowired
     public CandidateService(CandidateRepository candidateRepository, CandidateMapper candidateMapper) {
         this.candidateRepository = candidateRepository;
         this.candidateMapper = candidateMapper;
     }
+    @Transactional
     public CandidateDTO saveCandidate(CandidateDTO candidateDTO) {
         try {
             Candidate candidate = candidateMapper.toEntity(candidateDTO);
             Candidate savedCandidate = candidateRepository.save(candidate);
+            consumerServiceClient.sendCandidateData(candidateMapper.toDTO(savedCandidate));
             return candidateMapper.toDTO(savedCandidate);
         } catch (Exception e) {
             throw new RuntimeException("Failed to convert or save candidate", e);
@@ -65,4 +71,5 @@ public class CandidateService {
         Page<Candidate> candidates = candidateRepository.findAll(spec, pageable);
         return candidates.map(candidateMapper::toDTO);
     }
+
 }
